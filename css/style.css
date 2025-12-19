@@ -1,4 +1,12 @@
+*
+{
+-webkit-box-sizing:border-box;
+-moz-box-sizing:border-box;
+box-sizing: border-box;
+padding: 0;
+margin:0;
 
+}
 /* Global  */
 /* mobile */
 
@@ -28,16 +36,28 @@
     width:1170px ;
 }   
 }
+/* end Global */
 
+/* start settings */
+:root
+{
+--gap20px:20px;
+--global-color:#ffffff;
+--main-color: #2196f3;
+--text:rgb(0, 17, 0);
+--gap10px:10px;
+--gap5px:5px;
+}
 body
 {
 font-family:'Cairo',sans-serif;
-height: 100vh;
+min-height: 100vh;
 /* color: var(--text); */
 position: relative;
+background-color: var(--global-color);
 }
-/* End Rules */
-
+ul {list-style: none;}
+a{text-decoration: none;}
 .header
 {
 
@@ -49,3 +69,99 @@ margin-right: auto;
 padding-left:  15px;
 padding-right: 15px;
 }
+.flex
+{
+display: flex;
+}
+.flex-col
+{
+flex-direction: column;
+}
+.flex-row
+{
+flex-direction: row;
+}
+/* end  settings */
+
+
+/* start header */
+.header .container
+{
+justify-content: space-between;
+    align-items: center;
+}
+.header .container .logo
+{
+    color: var(--main-color);
+    font-size: 25px;
+    font-weight: 700;
+    text-transform: capitalize;
+    /* margin-top:var(--gap10px) */
+    padding:15px 10px; 
+    width:fit-content ;
+}
+.header .container nav
+{
+flex-basis: 90%;
+}
+.header .container nav ul 
+{
+
+gap:var(--gap10px);
+color:var(--text);
+justify-content: end;
+}
+
+.header .container nav ul li 
+{
+color: inherit;
+padding: 15px 10px;;
+position: relative;
+transition: background .4s ease-in;
+}
+
+.header .container nav ul li::after 
+{
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 5px;
+    background: var(--main-color);
+    left: 0;
+    top: 0;
+    transition: width .3s ease ;
+}
+
+.header .container nav ul li a
+{
+color: inherit;
+transition: color .3s ease;
+/* padding: 15px 10px;; */
+}
+
+.header .container nav ul li:hover
+{
+background: #8e85850d;
+color: var(--main-color);
+}
+
+/* hover nav */
+.header .container nav ul li:hover::after 
+{
+width: 100%;
+}
+/* end hover nav */
+
+/* mobile header*/
+@media (max-width:766px) 
+{
+.header .container
+{
+flex-direction: column;
+gap:var(--gap10px);
+}
+}
+/* end mobile header */
+
+
+/* end header */
